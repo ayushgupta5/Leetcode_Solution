@@ -5,7 +5,7 @@ public:
         while(lo+1 < n && a[lo] <= a[lo+1]) lo++;
         while(hi-1 >= 0 && a[hi-1] <= a[hi]) hi--;
         if(lo == n-1) return 0;
-        for(i = lo;i <= hi;i++) {
+        for(i = lo; i <= hi; i++) {
             mini = min(mini, a[i]);
             maxi = max(maxi, a[i]);
         }
