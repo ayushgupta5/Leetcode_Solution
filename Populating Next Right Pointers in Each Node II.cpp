@@ -29,10 +29,10 @@ public:
         vector<vector<Node *>> v;
         q.push(root);
         while(q.size()) {
-            int n=q.size();
+            int n = q.size();
             vector<Node *> a;
             for(int i=0;i<n;i++) {
-                root= q.front(); q.pop();
+                root = q.front(); q.pop();
                 a.push_back(root);
                 if(root->left) q.push(root->left);
                 if(root->right) q.push(root->right);
@@ -41,8 +41,8 @@ public:
         }
         for(int i=0;i<v.size();i++) {
             for(int j=0;j<v[i].size();j++) {
-                if(j==v[i].size()-1) v[i][j]->next=NULL;
-                else v[i][j]->next=v[i][j+1];
+                if(j == v[i].size()-1) v[i][j]->next = NULL;
+                else v[i][j]->next = v[i][j+1];
             }
         }
     }
