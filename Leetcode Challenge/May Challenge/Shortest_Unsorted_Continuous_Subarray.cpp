@@ -4,7 +4,9 @@ public:
         int i, lo = 0, hi = a.size()-1, mini = 1e9, maxi = -1e9, n = a.size();
         while(lo+1 < n && a[lo] <= a[lo+1]) lo++;
         while(hi-1 >= 0 && a[hi-1] <= a[hi]) hi--;
-        if(lo == n-1) return 0;
+        if(lo == n-1) {
+            return 0;
+        }
         for(i = lo; i <= hi; i++) {
             mini = min(mini, a[i]);
             maxi = max(maxi, a[i]);
