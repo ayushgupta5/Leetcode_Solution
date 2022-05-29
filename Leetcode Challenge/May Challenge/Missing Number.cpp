@@ -30,11 +30,11 @@ All the numbers of nums are unique.
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        int var=0,i,n=nums.size();
-        for(i=0;i<=n-1;i++){
-            var=var^i;
-            var=var^nums[i];
+        int var = 0, i, n = nums.size();
+        for(i=0; i<=n-1; i++){
+            var = var^i;
+            var = var^nums[i];
         }
-        return var^n;
+        return var ^ n;
     }
 };
