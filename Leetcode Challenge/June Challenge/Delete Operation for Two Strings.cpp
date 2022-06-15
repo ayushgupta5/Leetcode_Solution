@@ -33,7 +33,7 @@ public:
         return dp[n][m] = max(x, y);
     }
     int minDistance(string a, string b) {
-        int n=a.size(), m=b.size(), ans=n+m;
+        int n = a.size(), m = b.size(), ans=n+m;
         vector<vector<int>> dp(n+1, vector<int> (m+1, -1));
         return ans-2*f(a, b, n, m, dp);
     }
