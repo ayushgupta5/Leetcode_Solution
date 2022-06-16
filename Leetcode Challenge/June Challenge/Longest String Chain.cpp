@@ -35,34 +35,6 @@ Constraints:
 1 <= words[i].length <= 16
 words[i] only consists of lowercase English letters.
 */
-
-//Ayushi Sharma Youtube Video Reference
-class Solution {
-public:
-    int longestStrChain(vector<string>& words) {
-        int i, n = words.size(), j, ans = 1, wordValue, predValue;
-        vector<unordered_set<string>> W(17);
-        for(auto word: words) 
-            W[word.size()].insert(word);
-        unordered_map<string, int> dp;
-        for(i=16; i>0; i--) {
-            if(W[i-1].size() == 0) continue;
-            for(auto word: W[i]) {
-                wordValue = dp[word] ? dp[word] : 1;
-                for(j=0; j<word.size();j++) {
-                    string pred = word.substr(0, j) + word.substr(j+1);
-                    predValue = dp[pred]?dp[pred]:1;
-                    if(W[i-1].find(pred) != W[i-1].end() && wordValue >= predValue) {
-                        dp[pred] = wordValue + 1;
-                        ans = max(ans, wordValue + 1);
-                    }
-                }
-            }
-        }
-        return ans;
-    }
-};
-
 //Striver
 class Solution {
 public:
@@ -95,3 +67,32 @@ public:
         return ans;
     }
 };
+
+
+//Ayushi Sharma Youtube Video Reference
+class Solution {
+public:
+    int longestStrChain(vector<string>& words) {
+        int i, n = words.size(), j, ans = 1, wordValue, predValue;
+        vector<unordered_set<string>> W(17);
+        for(auto word: words) 
+            W[word.size()].insert(word);
+        unordered_map<string, int> dp;
+        for(i=16; i>0; i--) {
+            if(W[i-1].size() == 0) continue;
+            for(auto word: W[i]) {
+                wordValue = dp[word] ? dp[word] : 1;
+                for(j=0; j<word.size();j++) {
+                    string pred = word.substr(0, j) + word.substr(j+1);
+                    predValue = dp[pred]?dp[pred]:1;
+                    if(W[i-1].find(pred) != W[i-1].end() && wordValue >= predValue) {
+                        dp[pred] = wordValue + 1;
+                        ans = max(ans, wordValue + 1);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+
