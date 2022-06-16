@@ -35,6 +35,8 @@ Constraints:
 1 <= words[i].length <= 16
 words[i] only consists of lowercase English letters.
 */
+
+//Ayushi Sharma Youtube Video Reference
 class Solution {
 public:
     int longestStrChain(vector<string>& words) {
@@ -56,6 +58,39 @@ public:
                     }
                 }
             }
+        }
+        return ans;
+    }
+};
+
+//Striver
+class Solution {
+public:
+    bool ok(string &a, string &b) {
+        if(a.size() != 1 + b.size()) return 0;
+        int i = 0, j = 0;
+        while(i < a.size()) {
+            if(a[i] == b[j]) {
+                i++; j++;
+            }
+            else i++;
+        }
+        return i == a.size() && j == b.size();
+    }
+    static bool comp(string &a, string &b) {
+        return a.size() < b.size();
+    }
+    int longestStrChain(vector<string>& a) {
+        int i, prev, n = a.size(), ans = 1;
+        sort(a.begin(), a.end(), comp);
+        vector<int> dp(n, 1);
+        for(i=0; i<n; i++) {
+            for(prev=0; prev<i; prev++) {
+                if(ok(a[i], a[prev]) && dp[i] < (1 + dp[prev])) {
+                    dp[i] = 1 + dp[prev];
+                }
+            }
+            ans = max(ans, dp[i]);
         }
         return ans;
     }
