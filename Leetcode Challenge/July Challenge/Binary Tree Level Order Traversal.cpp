@@ -16,7 +16,6 @@ Example 3:
 
 Input: root = []
 Output: []
- 
 
 Constraints:
 
