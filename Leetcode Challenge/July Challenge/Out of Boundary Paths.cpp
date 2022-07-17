@@ -14,7 +14,6 @@ Example 2:
 Input: m = 1, n = 3, maxMove = 3, startRow = 0, startColumn = 1
 Output: 12
  
-
 Constraints:
 
 1 <= m, n <= 50
