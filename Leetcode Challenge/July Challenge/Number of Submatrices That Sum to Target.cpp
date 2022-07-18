@@ -21,7 +21,6 @@ Example 3:
 
 Input: matrix = [[904]], target = 0
 Output: 0
- 
 
 Constraints:
 
