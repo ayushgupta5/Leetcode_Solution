@@ -11,7 +11,6 @@ Example 2:
 
 Input: numRows = 1
 Output: [[1]]
- 
 
 Constraints:
 
