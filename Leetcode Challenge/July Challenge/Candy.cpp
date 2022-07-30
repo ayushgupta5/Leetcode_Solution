@@ -42,7 +42,7 @@ public:
 
                 l2r[] =      1 1 1 2 3 1 1 2 
                 r2l[] =      3 2 1 1 1 2 1 1 
-        ans = max(l2r,r2l) = 3+2+1+2+3+2+1+2=16
+        ans = max(l2r, r2l) = 3 + 2 + 1 + 2 + 3 + 2 + 1 + 2 = 16
     */
     int candy(vector<int>& a) {
         int i, ans = 0, n = a.size();
