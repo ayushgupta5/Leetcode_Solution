@@ -12,18 +12,18 @@ Output: -5
 class Solution {
 public:
     int kthSmallest(vector<vector<int>>& a, int k) {
-        int i, n=a.size(), lo=a[0][0], hi=a[n-1][n-1], mid, cnt, ans=0;
-        while(lo<=hi) {
-            mid=(lo+hi)>>1;
-            cnt=0;
-            for(i=0;i<n;i++) {
-                cnt += upper_bound(a[i].begin(), a[i].end(), mid)-a[i].begin();
+        int i, n = a.size(), lo = a[0][0], hi = a[n-1][n-1], mid, cnt, ans = 0;
+        while(lo <= hi) {
+            mid = (lo + hi) >> 1;
+            cnt = 0;
+            for(i=0; i<n; i++) {
+                cnt += upper_bound(a[i].begin(), a[i].end(), mid) - a[i].begin();
             }
-            if(cnt>=k) {
-                ans=mid;
-                hi=mid-1;
+            if(cnt >= k) {
+                ans = mid;
+                hi = mid - 1;
             }
-            else lo=mid+1;
+            else lo = mid + 1;
         }
         return ans;
     }
